@@ -1,0 +1,12 @@
+{
+    "image1": {
+        "data": "hwQQAA8AAAAiIiISIiIiAiIiIhEhIiICIiISEREiIgIiIhERESEiAiISERERESICIhERERERIQISERERERERAhEREREREREBIiISEREiIgIiIhIRESIiAiIiEhERIiICIiISEREiIgIiIhIRESIiAiIiEhERIiICIiISEREiIgIiIhIRESIiAg==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "esquerra"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
