@@ -176,6 +176,7 @@ def on_up_pressed():
     note = 3
 controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
 
+# Elimina tu función def limites(): antigua y pon esta nueva:
 def on_update():
     # Recorremos TODOS los sprites de tipo proyectil que existen
     for proyectil in sprites.all_of_kind(SpriteKind.projectile):

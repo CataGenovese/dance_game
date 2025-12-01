@@ -172,6 +172,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
     bailarin.setPosition(60, 100)
     note = 3
 })
+//  Elimina tu función def limites(): antigua y pon esta nueva:
 //  Esto hace que la comprobación se ejecute en cada momento del juego
 game.onUpdate(function on_update() {
     //  Recorremos TODOS los sprites de tipo proyectil que existen
