@@ -172,19 +172,14 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function on_up_pressed() {
     bailarin.setPosition(60, 100)
     note = 3
 })
-//  Elimina tu función def limites(): antigua y pon esta nueva:
-//  Esto hace que la comprobación se ejecute en cada momento del juego
-game.onUpdate(function on_update() {
-    //  Recorremos TODOS los sprites de tipo proyectil que existen
-    for (let proyectil of sprites.allOfKind(SpriteKind.Projectile)) {
-        //  Si alguno ha bajado demasiado (cerca del borde 120)
-        if (proyectil.y > 115) {
-            sprites.destroy(proyectil)
-            info.changeLifeBy(-1)
-        }
-        
+function limites() {
+    if (esquerra.y > 110) {
+        sprites.destroy(esquerra)
+        info.changeLifeBy(-1)
     }
-})
+    
+}
+
 info.onLifeZero(function on_life_zero() {
     game.gameOver(true)
 })

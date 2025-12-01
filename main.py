@@ -176,17 +176,10 @@ def on_up_pressed():
     note = 3
 controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
 
-# Elimina tu función def limites(): antigua y pon esta nueva:
-def on_update():
-    # Recorremos TODOS los sprites de tipo proyectil que existen
-    for proyectil in sprites.all_of_kind(SpriteKind.projectile):
-        # Si alguno ha bajado demasiado (cerca del borde 120)
-        if proyectil.y > 115:
-            sprites.destroy(proyectil)
-            info.change_life_by(-1)
-
-# Esto hace que la comprobación se ejecute en cada momento del juego
-game.on_update(on_update)
+def limites():
+    if esquerra.y > 110:
+        sprites.destroy(esquerra)
+        info.change_life_by(-1)
 
 def on_life_zero():
     game.game_over(True)
