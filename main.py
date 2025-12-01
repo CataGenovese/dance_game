@@ -28,7 +28,7 @@ def proyectiles():
             SpriteKind.projectile)
         esquerra.set_velocity(0, speed)
         esquerra.set_position(30, 8)
-    elif carril == 2:
+    elif (0) == (2):
         dreta = sprites.create(img("""
                 8 8 8 8 8 8 8 8 1 8 8 8 8 8 8 8
                 8 8 8 8 8 8 8 8 1 1 8 8 8 8 8 8
@@ -47,8 +47,6 @@ def proyectiles():
                 8 8 8 8 8 8 8 8 1 8 8 8 8 8 8 8
                 """),
             SpriteKind.projectile)
-        dreta.set_velocity(0, speed)
-        dreta.set_position(130, 8)
     elif carril == 3:
         up = sprites.create(img("""
                 a a a a a a a 1 a a a a a a a
@@ -178,21 +176,16 @@ def on_up_pressed():
     note = 3
 controller.up.on_event(ControllerButtonEvent.PRESSED, on_up_pressed)
 
-def limites():
-    if esquerra.y > 110:
-        sprites.destroy(esquerra)
-        info.change_life_by(-1)
-    elif dreta.y > 110:
-        sprites.destroy(dreta)
-        info.change_life_by(-1)
-    elif down.y > 110:
-        sprites.destroy(down)
-        info.change_life_by(-1)
-    elif up.y > 110:
-        sprites.destroy(up)
-        info.change_life_by(-1)
-    else:
-        pass
+def on_update():
+    # Recorremos TODOS los sprites de tipo proyectil que existen
+    for proyectil in sprites.all_of_kind(SpriteKind.projectile):
+        # Si alguno ha bajado demasiado (cerca del borde 120)
+        if proyectil.y > 115:
+            sprites.destroy(proyectil)
+            info.change_life_by(-1)
+
+# Esto hace que la comprobación se ejecute en cada momento del juego
+game.on_update(on_update)
 
 def on_life_zero():
     game.game_over(True)
@@ -341,5 +334,4 @@ crear_personatge()
 
 def on_update_interval():
     proyectiles()
-    limites()
 game.on_update_interval(500, on_update_interval)
